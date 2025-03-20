@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://du7e5kgrwfsl4"]
+[gd_scene load_steps=11 format=3 uid="uid://du7e5kgrwfsl4"]
 
 [ext_resource type="Script" uid="uid://cpivyldstntdl" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://57abum0yndi1" path="res://assets/fonts/I-pixel-u.ttf" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://dl81bygen0b1i" path="res://assets/world/Cloud2.png" id="2_wu84c"]
+[ext_resource type="Script" uid="uid://e786f5mi0ywe" path="res://scripts/sprite_2d.gd" id="3_8ln24"]
+[ext_resource type="Script" uid="uid://83f1yfym5ay0" path="res://scripts/small_cloud.gd" id="3_rtw2f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
-bg_color = Color(0.789112, 0.530741, 0.385778, 1)
+bg_color = Color(0.438571, 0.718759, 0.83859, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
 
@@ -49,6 +52,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ekxnf")
+
+[node name="SmallCloud" type="Sprite2D" parent="."]
+position = Vector2(808, 314)
+scale = Vector2(4.16, 4.2306)
+texture = ExtResource("2_wu84c")
+script = ExtResource("3_rtw2f")
+
+[node name="BigCloud" type="Sprite2D" parent="."]
+position = Vector2(936, 431)
+scale = Vector2(7.66, 7.79)
+texture = ExtResource("2_wu84c")
+script = ExtResource("3_8ln24")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
