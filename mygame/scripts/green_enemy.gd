@@ -9,10 +9,10 @@ var is_attacking = false
 func attack() -> void:
 	attack_cooldown = false
 	attack_timer.start()
-	#print("attack timer start")
+	print("attack timer start")
 
 func _on_attack_timer_timeout() -> void:
-	#print("attack timer timeout")
-	animation_player.play("FireAttackGreenEnemy")
+	print("attack timer timeout")
+	animation_player.play("fireball_attack")
 	await animation_player.animation_finished
 	attack_cooldown = true

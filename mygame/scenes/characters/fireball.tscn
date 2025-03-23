@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://wudrmxjyw82c"]
+[gd_scene load_steps=6 format=3 uid="uid://wudrmxjyw82c"]
 
 [ext_resource type="Texture2D" uid="uid://sxj7a5tiibl4" path="res://assets/characters/fieball.png" id="1_pnxns"]
+[ext_resource type="Script" uid="uid://ngutrn81068e" path="res://scripts/fireball_Attack.gd" id="2_w2t55"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fnujq"]
 atlas = ExtResource("1_pnxns")
@@ -24,6 +25,7 @@ height = 58.0
 [node name="Fireball" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_0hpou")
 animation = &"idle"
+script = ExtResource("2_w2t55")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -31,3 +33,8 @@ animation = &"idle"
 position = Vector2(1, 6)
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_pnxns")
+
+[node name="FireBallTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="FireBallTimer" to="." method="_on_fire_ball_timer_timeout"]

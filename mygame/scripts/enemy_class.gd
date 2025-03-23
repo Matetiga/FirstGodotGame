@@ -13,9 +13,7 @@ var attack_cooldown: bool = true:
 		return attack_cooldown
 	set(value):
 		attack_cooldown = value
-		print("attack cooldown is being changed")
-#func get_attack_cooldown() -> bool:
-	#return attack_cooldown
+
 
 func _ready() -> void:
 	# Connect signals programmatically if not done in the editor
