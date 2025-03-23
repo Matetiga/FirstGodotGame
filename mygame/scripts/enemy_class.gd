@@ -6,6 +6,17 @@ extends CharacterBody2D
 @export var reach := 125
 @onready var player: CharacterBody2D = %Player
 
+
+# Define a backing variable
+var attack_cooldown: bool = true:
+	get:
+		return attack_cooldown
+	set(value):
+		attack_cooldown = value
+		print("attack cooldown is being changed")
+#func get_attack_cooldown() -> bool:
+	#return attack_cooldown
+
 func _ready() -> void:
 	# Connect signals programmatically if not done in the editor
 	if not $Area2D.is_connected("body_entered", _on_area_2d_body_entered):
@@ -27,7 +38,8 @@ func follow_player(delta : float) -> void:
 		var distance = position.x - player.position.x
 		if abs(distance) < reach:
 			var direction = (player.global_position - global_position).normalized()
-			attack()
+			if attack_cooldown:
+				attack()
 			
 			# if the snake is moving, then play it's animation
 			$AnimatedSprite2D.play("moving")

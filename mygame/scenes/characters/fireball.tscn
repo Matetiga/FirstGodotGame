@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://wudrmxjyw82c"]
+[gd_scene load_steps=5 format=3 uid="uid://wudrmxjyw82c"]
 
 [ext_resource type="Texture2D" uid="uid://sxj7a5tiibl4" path="res://assets/characters/fieball.png" id="1_pnxns"]
 
@@ -17,6 +17,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pnxns"]
+radius = 17.0
+height = 58.0
+
 [node name="Fireball" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_0hpou")
 animation = &"idle"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 6)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_pnxns")
