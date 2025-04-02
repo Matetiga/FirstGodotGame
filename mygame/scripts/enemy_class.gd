@@ -7,7 +7,6 @@ extends CharacterBody2D
 @onready var player: CharacterBody2D = %Player
 
 
-# Define a backing variable
 var attack_cooldown: bool = true:
 	get:
 		return attack_cooldown
@@ -21,6 +20,7 @@ func _ready() -> void:
 		$Area2D.connect("body_entered", _on_area_2d_body_entered)
 	if not $Area2D/Timer.is_connected("timeout", _on_timer_timeout):
 		$Area2D/Timer.connect("timeout", _on_timer_timeout)
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

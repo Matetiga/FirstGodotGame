@@ -1,40 +1,41 @@
-[gd_scene load_steps=6 format=3 uid="uid://wudrmxjyw82c"]
+[gd_scene load_steps=5 format=3 uid="uid://wudrmxjyw82c"]
 
 [ext_resource type="Texture2D" uid="uid://sxj7a5tiibl4" path="res://assets/characters/fieball.png" id="1_pnxns"]
 [ext_resource type="Script" uid="uid://ngutrn81068e" path="res://scripts/fireball_Attack.gd" id="2_w2t55"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fnujq"]
-atlas = ExtResource("1_pnxns")
-region = Rect2(0, 0, 100, 100)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rarid"]
+radius = 3.0
+height = 12.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_0hpou"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fnujq")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w2t55"]
+radius = 4.0
+height = 18.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pnxns"]
-radius = 17.0
-height = 58.0
-
-[node name="Fireball" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_0hpou")
-animation = &"idle"
+[node name="Fireball" type="CharacterBody2D"]
 script = ExtResource("2_w2t55")
+
+[node name="FireBallTimer" type="Timer" parent="."]
+
+[node name="Fireball" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-07, 1)
+scale = Vector2(0.2375, 0.211871)
+texture = ExtResource("1_pnxns")
+
+[node name="Life" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="CharacterBody2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_rarid")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 6)
-rotation = -1.57079
-shape = SubResource("CapsuleShape2D_pnxns")
+position = Vector2(2, 2)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_w2t55")
 
-[node name="FireBallTimer" type="Timer" parent="."]
-
+[connection signal="timeout" from="Life" to="." method="_on_life_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="timeout" from="FireBallTimer" to="." method="_on_fire_ball_timer_timeout"]
