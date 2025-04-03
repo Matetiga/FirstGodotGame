@@ -15,6 +15,14 @@ run/main_scene="uid://du7e5kgrwfsl4"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://music/default_bus_layout.tres"
+
+[autoload]
+
+BgMusic="*res://scenes/music/bg_music.tscn"
+
 [input]
 
 move_left={
