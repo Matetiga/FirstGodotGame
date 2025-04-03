@@ -21,7 +21,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.get_node("CollisionShape2D").queue_free()
 		# The timeout function of this timer is found inside enemy_class.gd
-		$"../GreenEnemy/Area2D/Timer".start()
+		get_tree().get_root().get_node("Level1/DeathTimer").start()
+		
 
 		# this will delete the projectile itself
 		queue_free()

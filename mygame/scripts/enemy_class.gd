@@ -18,8 +18,7 @@ func _ready() -> void:
 	# Connect signals programmatically if not done in the editor
 	if not $Area2D.is_connected("body_entered", _on_area_2d_body_entered):
 		$Area2D.connect("body_entered", _on_area_2d_body_entered)
-	if not $Area2D/Timer.is_connected("timeout", _on_timer_timeout):
-		$Area2D/Timer.connect("timeout", _on_timer_timeout)
+
 
 
 func _physics_process(delta: float) -> void:
@@ -56,12 +55,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			queue_free()
 		else:
 			body.get_node("CollisionShape2D").queue_free()
-			$Area2D/Timer.start()
+			get_tree().get_root().get_node("Level1/DeathTimer").start()
 			Engine.time_scale = 0.5
 
-func _on_timer_timeout() -> void:
-	Engine.time_scale = 1
-	get_tree().reload_current_scene() # Replace with function body.
 
 func attack() -> void:
 	pass

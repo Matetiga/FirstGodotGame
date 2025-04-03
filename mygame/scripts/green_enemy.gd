@@ -5,7 +5,6 @@ extends "res://scripts/enemy_class.gd"
 @onready var main = get_tree().get_root().get_node("Level1")
 @onready var fireball = load("res://scenes/characters/fireball.tscn")
 @onready var attack_timer: Timer = $AttackTimer
-@onready var life: Timer = $Life
 
 
 func attack() -> void:

@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=4 uid="uid://dnancij74wog5"]
+[gd_scene load_steps=15 format=4 uid="uid://dnancij74wog5"]
 
+[ext_resource type="Script" uid="uid://bw30sqvmyikv3" path="res://scripts/level_1.gd" id="1_2y5yt"]
 [ext_resource type="Texture2D" uid="uid://b1eqj7mwt0i4x" path="res://assets/world/BackGroundMountains/parallax-mountain-bg.png" id="1_15mv3"]
 [ext_resource type="Texture2D" uid="uid://qx786miv5ine" path="res://assets/world/sheet.png" id="1_bswci"]
 [ext_resource type="Texture2D" uid="uid://bq36ygixv7cmg" path="res://assets/world/BackGroundMountains/parallax-mountain-montain-far.png" id="1_pa8r4"]
@@ -245,6 +246,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5xbjy")
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_2y5yt")
 
 [node name="Background2" type="Node2D" parent="."]
 
@@ -311,3 +313,7 @@ position = Vector2(779, 324)
 
 [node name="GreenEnemy" parent="." instance=ExtResource("4_5xbjy")]
 position = Vector2(858, 325)
+
+[node name="DeathTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

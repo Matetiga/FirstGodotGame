@@ -101,8 +101,6 @@ shape = SubResource("CapsuleShape2D_ito7x")
 position = Vector2(1, 6)
 shape = SubResource("CapsuleShape2D_6lpuq")
 
-[node name="Timer" type="Timer" parent="Area2D"]
-
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
@@ -112,5 +110,4 @@ visible = false
 position = Vector2(-17, 4)
 scale = Vector2(0.215, 0.215)
 
-[connection signal="timeout" from="Area2D/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
