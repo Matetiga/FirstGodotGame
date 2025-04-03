@@ -10,12 +10,11 @@ extends "res://scripts/enemy_class.gd"
 func attack() -> void:
 	attack_cooldown = false
 	attack_timer.start()
-	print("attack timer start")
-	
+
 	# This will create child nodes of the fireball inside Level1 node
 	var instance = fireball.instantiate()
-	instance.dir = rotation
-	instance.spawnPos.x = global_position.x - 10
+	instance.direction = global_position.direction_to(%Player.global_position)
+	instance.spawnPos.x = global_position.x 
 	instance.spawnPos.y = global_position.y + 4
 	instance.spawnRot = global_rotation
 	

@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var Speed = 100
 
-var dir : float
+var direction : Vector2
 var spawnPos : Vector2
 var spawnRot : float
 
@@ -11,10 +11,11 @@ var spawnRot : float
 func _ready() -> void:
 	global_position = spawnPos
 	global_rotation = spawnRot
+	look_at(position + direction)
 
 
 func _physics_process(delta: float) -> void:
-	velocity = Vector2(-Speed, 0).rotated(dir)
+	velocity = Vector2(-Speed, -Speed) * -direction
 	move_and_slide()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
