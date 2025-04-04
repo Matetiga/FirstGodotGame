@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dnancij74wog5"]
+[gd_scene load_steps=18 format=4 uid="uid://dnancij74wog5"]
 
 [ext_resource type="Script" uid="uid://bw30sqvmyikv3" path="res://scripts/level_1.gd" id="1_2y5yt"]
 [ext_resource type="Texture2D" uid="uid://b1eqj7mwt0i4x" path="res://assets/world/BackGroundMountains/parallax-mountain-bg.png" id="1_15mv3"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bnjda3qj2ngw8" path="res://scenes/characters/player.tscn" id="2_rus8k"]
 [ext_resource type="PackedScene" uid="uid://b647ig5fqseig" path="res://scenes/characters/snake.tscn" id="3_rus8k"]
 [ext_resource type="PackedScene" uid="uid://vmobe52h4iwd" path="res://scenes/characters/green_enemy.tscn" id="4_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://cfhpmxa7sj4ub" path="res://scenes/characters/fire_bud.tscn" id="11_go7sj"]
+[ext_resource type="FontFile" uid="uid://57abum0yndi1" path="res://assets/fonts/I-pixel-u.ttf" id="12_7gny6"]
+[ext_resource type="PackedScene" uid="uid://bi1ntul1vm4n8" path="res://scenes/characters/popeye.tscn" id="13_7gny6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bswci"]
 texture = ExtResource("1_bswci")
@@ -316,5 +319,21 @@ position = Vector2(827, 324)
 position = Vector2(858, 325)
 
 [node name="DeathTimer" type="Timer" parent="."]
+
+[node name="FireBud" parent="." instance=ExtResource("11_go7sj")]
+position = Vector2(781, 325)
+
+[node name="Label" type="Label" parent="FireBud"]
+offset_left = -20.0
+offset_top = -36.0
+offset_right = 42.0
+offset_bottom = -13.0
+theme_override_colors/font_color = Color(0.772549, 0.952941, 1, 1)
+theme_override_fonts/font = ExtResource("12_7gny6")
+theme_override_font_sizes/font_size = 16
+text = "Ayodia!!"
+
+[node name="Popeye" parent="." instance=ExtResource("13_7gny6")]
+position = Vector2(605, 337)
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

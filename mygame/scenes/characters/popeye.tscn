@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://bi1ntul1vm4n8"]
+
+[ext_resource type="Texture2D" uid="uid://ci4ywx24bv03n" path="res://assets/characters/popeye.png" id="1_vpyh2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iujp"]
+atlas = ExtResource("1_vpyh2")
+region = Rect2(0, 0, 94, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llnx1"]
+atlas = ExtResource("1_vpyh2")
+region = Rect2(94, 0, 94, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd3t4"]
+atlas = ExtResource("1_vpyh2")
+region = Rect2(188, 0, 94, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffps4"]
+atlas = ExtResource("1_vpyh2")
+region = Rect2(282, 0, 94, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lucb"]
+atlas = ExtResource("1_vpyh2")
+region = Rect2(376, 0, 94, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jl76"]
+atlas = ExtResource("1_vpyh2")
+region = Rect2(0, 122, 94, 122)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8n37u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iujp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llnx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd3t4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffps4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lucb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jl76")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[node name="Popeye" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5.5, -3.38298)
+scale = Vector2(0.776596, 0.715033)
+sprite_frames = SubResource("SpriteFrames_8n37u")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.512387
